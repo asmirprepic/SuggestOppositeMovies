@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	
+</head>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+<body>
+	<nav  style="background: black; color: black;">
+	  <div align="center"><h1>Movie Suggestor</h1></div>
+	</nav>
+	<br />
+	<br />
+	<center >
+	<br />
+	<br />
+	
+	  <form id = "search" action="" method="post" >
+		{% csrf_token %}
+		<div class="input-group">
+
+
+		<input type="text" class="form-control" name="Movie" id= "tags" placeholder="Search" action='searchmovie'>
+		<script>
+						$(function () {
+				$("#tags").autocomplete({
+					source: "{% url 'searchmovie' %}",
+					
+					minLength: 2
+				});
+			});
+		</script>
+
+		<script type="text/javascript">
+			
+			if("{{Movie}}".length==0){
+				document.getElementById('tags')['placeholder']='Search'
+				console.log('Printing first')
+			} else{
+
+				document.getElementById('tags').value = "{{Movie}}";
+				console.log('Printing second')
+			}
+			
+		</script>
+
+	
+		  <button id = "getMovies"class="button" type="submit" >Find Movie!</button>
+		  
+		  
+		  <div class="cardholder">
+			<div class = "comparer" id = 'comparison1'>
+			</div>
+				<script>	
+
+				if("{{Movie}}".length !=0){
+				const para = document.createElement("p");
+				const node = document.createTextNode("Movies that are least like {{Movie.upper}}:")
+				para.appendChild(node);
+				const element = document.getElementById("comparison1")
+				element.appendChild(para)
+				}
+				</script>
+			
+			
+		
+			
+			{% for movie in movies %} 
+			<div class="Movieresults">
+				
+				<p>{{movie.title.upper}}</p>
+			</div>
+			{% endfor %}
+			
+			
+		  </div>
+		  
+		  <form>	
+	</center>
+	</html>
