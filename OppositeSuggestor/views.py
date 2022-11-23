@@ -34,6 +34,8 @@ dataHand.loadCleandData()
 def index(request): 
 
     movies = ''
+    print(request.method)
+
     if request.method=='POST':
         print('Called Here')
         Movie=request.POST['Movie']
@@ -41,7 +43,7 @@ def index(request):
     else:
         Movie = ''
     
-    
+
    
     if Movie != '':
 
@@ -62,7 +64,7 @@ def index(request):
             
 
    
-
+    print('Printing Movie')
     print(Movie)
     return render(request,'index.html',{'movies':movies,'Movie':Movie})
 
