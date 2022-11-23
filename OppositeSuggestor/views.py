@@ -48,20 +48,20 @@ def index(request):
    
     if Movie != '':
 
-        try:
+      
         
-            print('Starting Extraction')
-            print(Movie)
-            
-            print(computor.compute(dataHand.getMovies(),Movie,100,90))
-            movies = (computor.compute(dataHand.getMovies(),Movie,100,90)['title'])
-           
-            
+        print('Starting Extraction')
+        print(Movie)
+        
+        print(computor.compute(dataHand.getMovies(),Movie,100,90))
+        movies = (computor.compute(dataHand.getMovies(),Movie,100,90)['title'])
+        
+        
 
-            print('Finished')
+        print('Finished')
 
-        except:
-            print('Something went wrong')
+        # except:
+        #     print('Something went wrong')
             
 
    
