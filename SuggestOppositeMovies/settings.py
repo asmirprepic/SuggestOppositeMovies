@@ -27,7 +27,7 @@ TEMPLATE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-n6nxmf%pisid_n3gn_nj2)#4*s0!f=&qk^(g%#n&0%j^v%f1m+"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*','localhost','127.0.0.1']
 
