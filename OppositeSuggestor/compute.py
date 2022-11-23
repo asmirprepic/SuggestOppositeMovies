@@ -27,6 +27,7 @@ class Compute:
         
         print('Testing Recommendation')
         recommender = Recommender(movies)
+        print('Recommender instance success testing getRec...')
         recommendation = recommender.getRecommendation(movie,5,nr_features,nr_components )
        
 

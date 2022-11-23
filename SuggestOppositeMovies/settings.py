@@ -31,7 +31,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*','localhost','127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['https://oppositeapptest.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://oppositeapptest.azurewebsites.net','https://suggestoroppositemovies.azurewebsites.net']
 # Application definition
 
 INSTALLED_APPS = [
