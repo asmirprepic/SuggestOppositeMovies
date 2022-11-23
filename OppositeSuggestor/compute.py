@@ -17,7 +17,7 @@ from MoviesCode.Code.Recommender import Recommender
 
 class Compute:
 
-    def __init__():
+    def __init__(self):
         pass
 
     def compute(movies,movie,nr_features,nr_components):
