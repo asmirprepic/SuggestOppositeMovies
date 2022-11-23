@@ -20,7 +20,7 @@ class Compute:
     def __init__(self):
         pass
 
-    def compute(movies,movie,nr_features,nr_components):
+    def compute(self,movies,movie,nr_features,nr_components):
 
         # dataHand = DataHandlerCollab()
         # dataHand.loadCleandData()
