@@ -34,11 +34,14 @@ class Recommender:
 
     def getSimilarity(self,movie_index,nr_features,nr_components):
 
-      
+
+        print('Priting truncated svd')
         svd = TruncatedSVD(n_components=nr_components)
-    
+        print('Done wit truncated svd')
       
+        print('Reduced data')
         reduced_data = svd.fit_transform(self.createVectorizer(nr_features))
+        print('done reduced data')
         
         return cosine_similarity([reduced_data[movie_index,:]],reduced_data[0:,:])
 
