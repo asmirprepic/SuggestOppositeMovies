@@ -15,7 +15,9 @@ class Recommender:
     def createVectorizer(self,nr_features):
         stop = list(stopwords.words('english'))
         
+        print('Cheking tfdif')
         tfdif = TfidfVectorizer(max_features=nr_features,analyzer='word',stop_words=set(stop))
+        print('Done checking tfdif')
    
         vectorized_data=tfdif.fit_transform(self.df['tags'])
         
@@ -32,9 +34,6 @@ class Recommender:
       
         reduced_data = svd.fit_transform(self.createVectorizer(nr_features))
         
-  
-
-    
         return cosine_similarity([reduced_data[movie_index,:]],reduced_data[0:,:])
 
     def getRecommendation(self,title,n,nr_features,nr_components):
@@ -42,6 +41,7 @@ class Recommender:
         movie_index=self.df[self.df.title==title].new_id.values[0]
         print('Printing Movie Index')
         print(movie_index)
+
 
         cosine_sim = self.getSimilarity(movie_index,nr_features,nr_components)
         print('Printing Cosine sim')
