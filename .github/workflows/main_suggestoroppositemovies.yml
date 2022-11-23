@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'SuggestorOppositeMovies'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F0BFF7446C8C4B5497DC31574A3AAC80 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_65E75EC2F33C42FC919ACF426B9E53F4 }}
