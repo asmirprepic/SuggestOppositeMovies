@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
+import pathlib
 
 class DataHandlerCollab:
     def __init__(self):
@@ -91,8 +92,10 @@ class DataHandlerCollab:
         return self.df_movies
 
     def loadCleandData(self):
-        
-        self.df_movies = pd.read_csv('.\\MoviesCode\\Data\\movies_output.csv',low_memory = False, encoding = 'UTF-8')
+       
+
+
+        self.df_movies = pd.read_csv(pathlib.Path(__file__).parent.parent / 'Data/movies_output.csv',low_memory = False, encoding = 'UTF-8')
 
         
 

@@ -22,13 +22,14 @@ from nltk.corpus import stopwords
 
 from MoviesCode.Code.DataHandlerCollab import DataHandlerCollab
 from MoviesCode.Code.Recommender import Recommender
-
+from django.views.decorators.csrf import csrf_protect
 
 dataHand = DataHandlerCollab()
 dataHand.loadCleandData()
 
 
 # Create your views here.
+
 
 def index(request): 
 
