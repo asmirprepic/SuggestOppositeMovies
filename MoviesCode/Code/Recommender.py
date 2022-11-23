@@ -21,8 +21,11 @@ class Recommender:
         print('Cheking tfdif')
         tfdif = TfidfVectorizer(max_features=nr_features,analyzer='word',stop_words=set(stop))
         print('Done checking tfdif')
-   
+        
+        print('Vectorized_data printing')
         vectorized_data=tfdif.fit_transform(self.df['tags'])
+        print(vectorized_data)
+        print('Vectorized data done')
         
    
        
