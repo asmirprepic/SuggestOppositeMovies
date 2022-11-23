@@ -13,7 +13,10 @@ class Recommender:
         self.df = df
         
     def createVectorizer(self,nr_features):
+        print('Trying stop word')
         stop = list(stopwords.words('english'))
+        print('Checking stop words')
+        print(stop)
         
         print('Cheking tfdif')
         tfdif = TfidfVectorizer(max_features=nr_features,analyzer='word',stop_words=set(stop))
