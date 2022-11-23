@@ -27,7 +27,7 @@ from django.views.decorators.csrf import csrf_protect
 dataHand = DataHandlerCollab()
 dataHand.loadCleandData()
 
-computor = Compute
+computor = Compute()
 
 # Create your views here.
 
