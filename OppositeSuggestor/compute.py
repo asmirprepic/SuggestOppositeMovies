@@ -27,6 +27,9 @@ class Compute:
         
         
         recommender = Recommender(movies)
+        reccomendation = recommender.getRecommendation(movie,5,nr_features,nr_components )
+        print('Testing reccomendation')
+        print(reccomendation)
        
 
-        return ( recommender.getRecommendation(movie,5,nr_features,nr_components ))
+        return (reccomendation)

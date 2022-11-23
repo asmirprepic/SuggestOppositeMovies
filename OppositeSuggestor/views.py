@@ -52,7 +52,7 @@ def index(request):
             print('Starting Extraction')
             print(Movie)
             
-            
+            print(Compute.compute(dataHand.getMovies(),Movie,100,90))
             movies = (Compute.compute(dataHand.getMovies(),Movie,100,90)['title'])
            
             
