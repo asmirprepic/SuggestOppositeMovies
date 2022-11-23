@@ -40,9 +40,11 @@ class Recommender:
     def getRecommendation(self,title,n,nr_features,nr_components):
 
         movie_index=self.df[self.df.title==title].new_id.values[0]
-        
+        print('Printing Movie Index')
+        print(movie_index)
 
         cosine_sim = self.getSimilarity(movie_index,nr_features,nr_components)
+        print('Printing Cosine sim')
         
         #sorted(list(enumerate(cosine_sim[movie_index])),key=lambda x: x[1],reverse=False)
        
@@ -54,8 +56,7 @@ class Recommender:
         if n>0:
             sim_score_all=sim_score_all[0:n]
         
-        
-            
+    
         print('getting movie indecies')
         movie_indicies=[i[0] for i in sim_score_all]
 

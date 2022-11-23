@@ -27,6 +27,7 @@ from django.views.decorators.csrf import csrf_protect
 dataHand = DataHandlerCollab()
 dataHand.loadCleandData()
 
+computor = Compute
 
 # Create your views here.
 
@@ -52,8 +53,8 @@ def index(request):
             print('Starting Extraction')
             print(Movie)
             
-            print(Compute.compute(dataHand.getMovies(),Movie,100,90))
-            movies = (Compute.compute(dataHand.getMovies(),Movie,100,90)['title'])
+            print(computor.compute(dataHand.getMovies(),Movie,100,90))
+            movies = (computor.compute(dataHand.getMovies(),Movie,100,90)['title'])
            
             
 
