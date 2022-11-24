@@ -1,2 +1,10 @@
 "db.sqlite3" 
 ".venv" 
+MoviesCode/Data/Movie Data/credits.csv
+MoviesCode/Data/Movie Data/keywords.csv
+MoviesCode/Data/Movie Data/links_small.csv
+MoviesCode/Data/Movie Data/links.csv
+MoviesCode/Data/Movie Data/movies_metadata.csv
+MoviesCode/Data/Movie Data/ratings_small.csv
+MoviesCode/Data/Movie Data/ratings.csv
+MoviesCode/Code/testscript.py

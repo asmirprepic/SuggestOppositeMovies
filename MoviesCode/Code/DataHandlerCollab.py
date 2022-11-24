@@ -94,6 +94,7 @@ class DataHandlerCollab:
     def loadCleandData(self):
        
         self.df_movies = pd.read_csv(pathlib.Path(__file__).parent.parent / 'Data/movies_output.csv',low_memory = False, encoding = 'UTF-8')
+        self.df_movies['title'] = self.df_movies['title'].str.upper()
         
 
         

@@ -35,11 +35,12 @@ computor = Compute()
 def index(request): 
 
     movies = ''
-    print(request.method)
+    
 
     if request.method=='POST':
         print('Called Here')
-        Movie=request.POST['Movie']
+        Movie=request.POST['Movie'].upper()
+        
         
     else:
         Movie = ''
@@ -47,26 +48,22 @@ def index(request):
 
    
     if Movie != '':
-
-      
-        
-        print('Starting Extraction')
         print(Movie)
-        
         print(computor.compute(dataHand.getMovies(),Movie,100,90))
-        movies = (computor.compute(dataHand.getMovies(),Movie,100,90)['title'])
+        try:
         
-        
+            print('Starting Extraction')
+            print(Movie)
+            
+            print(computor.compute(dataHand.getMovies(),Movie,100,90))
+            movies = (computor.compute(dataHand.getMovies(),Movie,100,90)['title'])
 
-        print('Finished')
+            print('Finished')
 
-        # except:
-        #     print('Something went wrong')
+        except:
+            print('Something went wrong')
             
 
-   
-    print('Printing Movie')
-    print(Movie)
     return render(request,'index.html',{'movies':movies,'Movie':Movie})
 
 # /search 
