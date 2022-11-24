@@ -16,7 +16,7 @@ class Recommender:
         print('Trying stop word')
         stop = list(stopwords.words('english'))
         print('Checking stop words')
-        print(stop)
+        print(stop[0])
         
         print('Cheking tfdif')
         tfdif = TfidfVectorizer(max_features=nr_features,analyzer='word',stop_words=set(stop))
@@ -24,7 +24,7 @@ class Recommender:
         
         print('Vectorized_data printing')
         vectorized_data=tfdif.fit_transform(self.df['tags'])
-        print(vectorized_data)
+        print(vectorized_data[0])
         print('Vectorized data done')
         
    

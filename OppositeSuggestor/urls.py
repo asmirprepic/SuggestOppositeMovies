@@ -1,7 +1,8 @@
 from django.urls import path
-from OppositeSuggestor import views
+from .views import index, search_movie
+
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('searchmovie',views.search_movie,name='searchmovie'),
+    path('', index, name='index'),
+    path('searchmovie',search_movie,name='searchmovie'),
 ]
