@@ -5,6 +5,7 @@ from rest_framework import viewsets
 from .models import Movies
 import json
 import urllib.request
+import multiprocessing
 
 import numpy as np
 import pandas as pd
@@ -49,21 +50,22 @@ def index(request):
    
     if Movie != '':
         print(Movie)
-        print(computor.compute(dataHand.getMovies(),Movie,100,90))
+        
         try:
         
             print('Starting Extraction')
             print(Movie)
             
-            print(computor.compute(dataHand.getMovies(),Movie,100,90))
-            movies = (computor.compute(dataHand.getMovies(),Movie,100,90)['title'])
+            dfs = np.array_split(dataHand.getMovies(),4)
+            
+            movies = (computor.compute(dataHand.getMovies(),Movie,1000,500)['title'])
 
             print('Finished')
 
         except:
             print('Something went wrong')
             
-
+    
     return render(request,'index.html',{'movies':movies,'Movie':Movie})
 
 # /search 

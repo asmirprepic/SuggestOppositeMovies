@@ -3,6 +3,7 @@
 <html>
 
 <link rel="stylesheet" href="{% static 'style.css' %}">
+<meta charset="UTF-8">
 
 <head>
 	<meta charset="UTF-8">
@@ -49,7 +50,8 @@
 				console.log('Printing first')
 			} else{
 
-				document.getElementById('tags').value = "{{Movie}}";
+				
+				document.getElementById('tags').value = "{{Movie}}".replace('&amp;','&');
 				console.log('Printing second')
 			}
 			
@@ -65,7 +67,7 @@
 				<script>	
 				if("{{Movie}}".length !=0){
 				const para = document.createElement("p");
-				const node = document.createTextNode("Movies that are least like {{Movie.upper}}:")
+				const node = document.createTextNode("Movies that are least like {{Movie.upper}}:".replace('&amp;','&'))
 				para.appendChild(node);
 				const element = document.getElementById("comparison1")
 				element.appendChild(para)

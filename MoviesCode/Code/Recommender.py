@@ -23,6 +23,7 @@ class Recommender:
         )
 
         vectorized_data = tfdif.fit_transform(self.df["tags"])
+        
 
         return pd.DataFrame(
             vectorized_data.toarray(), index=self.df["tags"].index.tolist()
@@ -31,16 +32,22 @@ class Recommender:
     def getSimilarity(self, movie_index, nr_features, nr_components):
 
         svd = TruncatedSVD(n_components=nr_components)
-        reduced_data = svd.fit_transform(self.createVectorizer(nr_features))
+        reduced_data = svd.fit_transform(self.createVectorizer(nr_features)) 
+        
+        
+        
+
 
         return cosine_similarity([reduced_data[movie_index, :]], reduced_data[0:, :])
 
     def getRecommendation(self, title, n, nr_features, nr_components):
 
         movie_index = self.df[self.df.title == title].new_id.values[0]
+       
 
         cosine_sim = self.getSimilarity(movie_index, nr_features, nr_components)
-
+        
+        
         # sorted(list(enumerate(cosine_sim[movie_index])),key=lambda x: x[1],reverse=False)
 
         sim_score_all = sorted(

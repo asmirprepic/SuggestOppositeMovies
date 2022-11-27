@@ -31,4 +31,26 @@ class Compute:
             movie, 5, nr_features, nr_components
         )
 
+       
+
+
         return recommendation
+
+    def compute_parallell(self, movies, movie, nr_features, nr_components,q):
+
+         # dataHand = DataHandlerCollab()
+        # dataHand.loadCleandData()
+
+        recommender = Recommender(movies)
+
+        recommendation = recommender.getRecommendation(
+            movie, 5, nr_features, nr_components
+        )
+
+       
+
+
+        return q.put(recommendation)
+
+
+        
