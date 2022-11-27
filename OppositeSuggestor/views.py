@@ -58,7 +58,7 @@ def index(request):
             
             dfs = np.array_split(dataHand.getMovies(),4)
             
-            movies = (computor.compute(dataHand.getMovies(),Movie,1000,500)['title'])
+            movies = (computor.compute(dataHand.getMovies(),Movie,300,50)['title'])
 
             print('Finished')
 
