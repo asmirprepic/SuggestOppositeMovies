@@ -62,9 +62,11 @@ def index(request):
             movies = (computor.compute(Movie)['title'])
 
             print('Finished')
+            
 
         except:
             print('Something went wrong')
+            print('Wierd error')
             
     
     return render(request,'index.html',{'movies':movies,'Movie':Movie})
