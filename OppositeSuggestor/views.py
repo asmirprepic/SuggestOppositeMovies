@@ -53,18 +53,18 @@ def index(request):
         print(Movie)
         
    
-    
-        print('Starting Extraction')
-        print(Movie)
-        
-        
-        
-        movies = (computor.compute(Movie)['title'])
+        try:
+            print('Starting Extraction')
+            print(Movie)
+            
+            
+            
+            movies = (computor.compute(Movie)['title'])
 
-        print('Finished')
+            print('Finished')
 
-        # except:
-        #     print('Something went wrong')
+        except:
+            print('Something went wrong')
             
     
     return render(request,'index.html',{'movies':movies,'Movie':Movie})
