@@ -28,7 +28,8 @@ from django.views.decorators.csrf import csrf_protect
 dataHand = DataHandlerCollab()
 dataHand.loadCleandData()
 
-computor = Compute()
+computor = Compute(dataHand.getMovies())
+
 
 # Create your views here.
 
@@ -51,19 +52,19 @@ def index(request):
     if Movie != '':
         print(Movie)
         
-        try:
+   
+    
+        print('Starting Extraction')
+        print(Movie)
         
-            print('Starting Extraction')
-            print(Movie)
-            
-            dfs = np.array_split(dataHand.getMovies(),4)
-            
-            movies = (computor.compute(dataHand.getMovies(),Movie,300,50)['title'])
+        
+        
+        movies = (computor.compute(Movie)['title'])
 
-            print('Finished')
+        print('Finished')
 
-        except:
-            print('Something went wrong')
+        # except:
+        #     print('Something went wrong')
             
     
     return render(request,'index.html',{'movies':movies,'Movie':Movie})

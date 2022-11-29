@@ -17,23 +17,22 @@ from MoviesCode.Code.Recommender import Recommender
 
 
 class Compute:
-    def __init__(self):
-        pass
+    def __init__(self,movies):
+        self.recommender = Recommender(movies)
+        self.recommender.reduceData(5000,1000)
+        
 
-    def compute(self, movies, movie, nr_features, nr_components):
+    def compute(self, movie):
 
         # dataHand = DataHandlerCollab()
         # dataHand.loadCleandData()
 
-        recommender = Recommender(movies)
 
-        recommendation = recommender.getRecommendation(
-            movie, 5, nr_features, nr_components
+        recommendation = self.recommender.getRecommendation(
+            movie, 5
         )
 
        
-
-
         return recommendation
 
     def compute_parallell(self, movies, movie, nr_features, nr_components,q):

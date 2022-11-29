@@ -13,6 +13,8 @@ from nltk.corpus import stopwords
 class Recommender:
     def __init__(self, df):
         self.df = df
+        self.reduced_data = None
+        
 
     def createVectorizer(self, nr_features):
 
@@ -28,24 +30,27 @@ class Recommender:
         return pd.DataFrame(
             vectorized_data.toarray(), index=self.df["tags"].index.tolist()
         )
-
-    def getSimilarity(self, movie_index, nr_features, nr_components):
-
+    
+    def reduceData(self,nr_features,nr_components):
         svd = TruncatedSVD(n_components=nr_components)
-        reduced_data = svd.fit_transform(self.createVectorizer(nr_features)) 
-        
-        
-        
+        self.reduced_data=svd.fit_transform(self.createVectorizer(nr_features))
 
+        return None
 
-        return cosine_similarity([reduced_data[movie_index, :]], reduced_data[0:, :])
+    def getSimilarity(self, movie_index):
 
-    def getRecommendation(self, title, n, nr_features, nr_components):
+        # svd = TruncatedSVD(n_components=nr_components)
+        # reduced_data = svd.fit_transform(self.createVectorizer(nr_features)) 
+        
+    
+        return cosine_similarity([self.reduced_data[movie_index, :]], self.reduced_data[0:, :])
+
+    def getRecommendation(self, title, n):
 
         movie_index = self.df[self.df.title == title].new_id.values[0]
        
 
-        cosine_sim = self.getSimilarity(movie_index, nr_features, nr_components)
+        cosine_sim = self.getSimilarity(movie_index)
         
         
         # sorted(list(enumerate(cosine_sim[movie_index])),key=lambda x: x[1],reverse=False)
