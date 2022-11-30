@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import time
+import nltk
+nltk.download('stopwords')
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -19,7 +21,7 @@ from MoviesCode.Code.Recommender import Recommender
 class Compute:
     def __init__(self,movies):
         self.recommender = Recommender(movies)
-        self.recommender.reduceData(3000,1000)
+        self.recommender.reduceData(1000,500)
         
 
     def compute(self, movie):
