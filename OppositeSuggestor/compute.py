@@ -19,7 +19,7 @@ from MoviesCode.Code.Recommender import Recommender
 class Compute:
     def __init__(self,movies):
         self.recommender = Recommender(movies)
-        self.recommender.reduceData(5000,1000)
+        self.recommender.reduceData(3000,1000)
         
 
     def compute(self, movie):

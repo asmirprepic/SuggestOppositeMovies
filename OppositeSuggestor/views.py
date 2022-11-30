@@ -19,7 +19,7 @@ from sklearn.decomposition import TruncatedSVD
 # import nltk
 # nltk.download('stopwords')
 from nltk.corpus import stopwords
-
+import time
 
 from MoviesCode.Code.DataHandlerCollab import DataHandlerCollab
 from MoviesCode.Code.Recommender import Recommender
@@ -28,7 +28,9 @@ from django.views.decorators.csrf import csrf_protect
 dataHand = DataHandlerCollab()
 dataHand.loadCleandData()
 
+
 computor = Compute(dataHand.getMovies())
+
 
 
 # Create your views here.
