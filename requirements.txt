@@ -14,7 +14,7 @@ django-extensions==3.2.1
 djangorestframework==3.14.0
 et-xmlfile==1.1.0
 exceptiongroup==1.0.0rc9
-fonttools==4.37.4
+fonttools==4.43.0
 gunicorn
 h11==0.14.0
 idna==3.4
@@ -27,7 +27,7 @@ openpyxl==3.0.10
 outcome==1.2.0
 packaging==21.3
 pandas==1.5.0
-Pillow==9.2.0
+Pillow==10.2.0
 psycopg2-binary==2.9.5
 pycparser==2.21
 pyparsing==3.0.9
