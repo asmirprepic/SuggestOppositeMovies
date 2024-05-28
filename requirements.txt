@@ -18,7 +18,7 @@ exceptiongroup==1.0.0rc9
 fonttools==4.43.0
 gunicorn
 h11==0.14.0
-idna==3.4
+idna>=3.7
 joblib==1.2.0
 kiwisolver==1.4.4
 matplotlib==3.6.2
